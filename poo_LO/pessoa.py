@@ -1,4 +1,5 @@
 from datetime import datetime
+from random import randint
 
 class Pessoa:
 
@@ -59,3 +60,18 @@ class Pessoa:
     def por_ano_nascimento(cls, nome, ano_nascimento): # cls é a convenção para o equivalente ao self nos métodos de classe
         idade = cls.ano_atual - ano_nascimento
         return cls(nome, idade) # aqui é como se estivesse chamando o construtor da classe
+
+    # Métodos estáticos: não precisa da instância e nem da classe em si. É como se fosse uma função "normal" que,
+    #por questão de organização, precisaria ficar dentro da classe.
+
+    @staticmethod
+    def gerar_id(): # não recebe nem a classe e nem a instância como parâmetros. Mas pode receber outros parâmetros.
+        rand = randint(10000, 19999)
+        return rand
+    
+    # Método sem o decorador e com o 'self' -> Método de instância.
+    # Métodos de classe tem um decorador e recebem a classe como parâmetro 'cls' -> trantam do que é 'global' para a classe.
+    # Métodos estáticos não recebem o self e nem cls -> É uma função comum que, por questão de responsabilidade, fica dentro da classe
+
+
+
